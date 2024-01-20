@@ -41,4 +41,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /* relazione one to many tabella doctors */
+    public function restaurant(): HasOne
+    {
+        return $this->hasOne(Restaurant::class);
+    }
 }

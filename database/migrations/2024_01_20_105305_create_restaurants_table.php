@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('name', 30);
             $table->string('address', 50);
-            $table->integer('p_iva', 11);
+            $table->bigInteger('p_iva');
             $table->string('photo')->nullable();
             $table->timestamps();
             
