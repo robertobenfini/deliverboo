@@ -14,4 +14,10 @@ class Restaurant extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /* relazione many to many alla tabella tipologie */
+    public function typologies(): BelongsToMany
+    {
+        return $this->belongsToMany(Typologie::class);
+    }
 }
