@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Typologie;
-use App\Http\Requests\StoreTypologieRequest;
-use App\Http\Requests\UpdateTypologieRequest;
+use App\Models\Typology;
+use App\Http\Requests\StoreTypologyRequest;
+use App\Http\Requests\UpdateTypologyRequest;
 
-class TypologieController extends Controller
+class TypologyController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class TypologieController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreTypologieRequest  $request
+     * @param  \App\Http\Requests\StoreTypologyRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreTypologieRequest $request)
+    public function store(StoreTypologyRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class TypologieController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Typologie  $typologie
+     * @param  \App\Models\Typology  $typology
      * @return \Illuminate\Http\Response
      */
-    public function show(Typologie $typologie)
+    public function show(Typology $typology)
     {
         //
     }
@@ -53,10 +53,10 @@ class TypologieController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Typologie  $typologie
+     * @param  \App\Models\Typology  $typology
      * @return \Illuminate\Http\Response
      */
-    public function edit(Typologie $typologie)
+    public function edit(Typology $typology)
     {
         //
     }
@@ -64,22 +64,22 @@ class TypologieController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateTypologieRequest  $request
-     * @param  \App\Models\Typologie  $typologie
+     * @param  \App\Http\Requests\UpdateTypologyRequest  $request
+     * @param  \App\Models\Typology  $typology
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateTypologieRequest $request, Typologie $typologie)
+    public function update(UpdateTypologyRequest $request, Typology $typology)
     {
-        //
+        
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Typologie  $typologie
+     * @param  \App\Models\Typology  $typology
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Typologie $typologie)
+    public function destroy(Typology $typology)
     {
         //
     }
