@@ -15,7 +15,7 @@ return new class extends Migration
             $table->string('name', 100);
             $table->string('address', 50);
             $table->bigInteger('p_iva');
-            $table->string('photo')->nullable();
+            $table->string('photo', 1500)->nullable();
             $table->timestamps();
             $table->softDeletes();
             
