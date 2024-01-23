@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Restaurant;
 use Illuminate\Support\Facades\Schema;
+use App\Models\Typology;
 
 class RestaurantSeeder extends Seeder
 {
