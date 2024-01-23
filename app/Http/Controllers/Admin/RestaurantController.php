@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Typology;
 use App\Models\Restaurant;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 use App\Http\Requests\StoreRestaurantRequest;
 use App\Http\Requests\UpdateRestaurantRequest;
@@ -13,8 +15,8 @@ class RestaurantController extends Controller
     private $validations = [
         'name' => 'required|string|min:5|max:255',
         'address' => 'required|string|min:5|max:255',
-        'p_iva' => 'required|string|min:5|max:255',
-        'photo' => 'required|string|min:5|max:1000',
+        'p_iva' => 'required|numeric|digits:13',
+        'photo' => 'nullable|string',
     ];
     
     private $validations_messages = [
@@ -25,26 +27,23 @@ class RestaurantController extends Controller
         'exists' => 'Valore non valido'
     ];
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
-        // $restaurants = Restaurant::with(['user_id', 'name', 'address', 'p_iva', 'photo']);
-        $restaurants = Restaurant::All();
-        return view('admin.restaurants.index', compact('restaurants'));
+        // Recupera l'utente autenticato
+        $user = Auth::user();
+
+        // Recupera il ristorante associato all'utente
+        $restaurant = $user->restaurant;
+
+        return view('admin.restaurants.index', compact('restaurant'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
-    {
-        return view('admin.restaurants.create');
+    {   
+        $typologies = Typology::All();
+        return view('admin.restaurants.create', compact('typologies'));
     }
 
     /**
@@ -54,21 +53,35 @@ class RestaurantController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(StoreRestaurantRequest $request)
-    {
+    {   
+        // dd($request->all());
         $request->validate($this->validations, $this->validations_messages);
 
+        // Ottenere i dati dalla richiesta
         $data = $request->all();
+       
+        
+        // dd($data);
 
+        // Creare una nuova istanza del ristorante
         $newRestaurant = new Restaurant();
 
+        $newRestaurant->user_id = auth()->user()->id;
         $newRestaurant->name = $data['name'];
         $newRestaurant->address = $data['address'];
         $newRestaurant->p_iva = $data['p_iva'];
         $newRestaurant->photo = $data['photo'];
 
+        
+        // Salvare il nuovo ristorante nel database
         $newRestaurant->save();
 
-        return redirect()->route('admin.restaurants.create', ['restaurant' => $newRestaurant]);
+        // Sincronizzare le tipologie del ristorante
+        $newRestaurant->typologies()->sync($data['typologies'] ?? []);
+
+        // Reindirizzare alla vista degli ristoranti
+        return redirect()->route('admin.restaurants.index', ['restaurant' => $newRestaurant]);
+       
     }
 
     /**
