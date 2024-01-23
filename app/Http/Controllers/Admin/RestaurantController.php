@@ -32,7 +32,8 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        //
+        $restaurants = Restaurant::with(['user_id', 'name', 'address', 'p_iva', 'photo']);
+        return view('admin.restaurants.index');
     }
 
     /**
