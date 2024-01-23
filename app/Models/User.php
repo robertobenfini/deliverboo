@@ -43,7 +43,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    /* relazione one to many tabella doctors */
+    /* relazione one to one tabella restaurants */
     public function restaurant(): HasOne
     {
         return $this->hasOne(Restaurant::class);

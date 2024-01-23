@@ -27,7 +27,6 @@ class Restaurant extends Model
     }
 
     /* Relazione one-to-many con la tabella piatti*/
-    
     public function dishes(): HasMany
     {
         return $this->hasMany(Dish::class);
