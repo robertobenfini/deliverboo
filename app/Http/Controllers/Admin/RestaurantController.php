@@ -3,11 +3,28 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Restaurant;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Request;
 use App\Http\Requests\StoreRestaurantRequest;
 use App\Http\Requests\UpdateRestaurantRequest;
 
 class RestaurantController extends Controller
-{
+{   
+    private $validations = [
+        'name' => 'required|string|min:5|max:255',
+        'address' => 'required|string|min:5|max:255',
+        'p_iva' => 'required|string|min:5|max:255',
+        'photo' => 'required|string|min:5|max:1000',
+    ];
+    
+    private $validations_messages = [
+        'required' => 'il campo :attribute è obbligatorio',
+        'min' => 'il campo :attribute deve avere minimo :min caratteri',
+        'max' => 'il campo :attribute non può superare i :max caratteri',
+        'url' => 'il campo deve essere un url valido',
+        'exists' => 'Valore non valido'
+    ];
+
     /**
      * Display a listing of the resource.
      *
@@ -25,7 +42,7 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.restaurants.create');
     }
 
     /**
@@ -36,7 +53,20 @@ class RestaurantController extends Controller
      */
     public function store(StoreRestaurantRequest $request)
     {
-        //
+        $request->validate($this->validations, $this->validations_messages);
+
+        $data = $request->all();
+
+        $newRestaurant = new Restaurant();
+
+        $newRestaurant->name = $data['name'];
+        $newRestaurant->address = $data['address'];
+        $newRestaurant->p_iva = $data['p_iva'];
+        $newRestaurant->photo = $data['photo'];
+
+        $newRestaurant->save();
+
+        return redirect()->route('admin.restaurants.create', ['restaurant' => $newRestaurant]);
     }
 
     /**
