@@ -46,12 +46,7 @@ class RestaurantController extends Controller
         return view('admin.restaurants.create', compact('typologies'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreRestaurantRequest  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(StoreRestaurantRequest $request)
     {   
         // dd($request->all());
@@ -66,11 +61,11 @@ class RestaurantController extends Controller
         // Creare una nuova istanza del ristorante
         $newRestaurant = new Restaurant();
 
-        $newRestaurant->user_id = auth()->user()->id;
-        $newRestaurant->name = $data['name'];
-        $newRestaurant->address = $data['address'];
-        $newRestaurant->p_iva = $data['p_iva'];
-        $newRestaurant->photo = $data['photo'];
+        $newRestaurant->user_id     = auth()->user()->id;
+        $newRestaurant->name        = $data['name'];
+        $newRestaurant->address     = $data['address'];
+        $newRestaurant->p_iva       = $data['p_iva'];
+        $newRestaurant->photo       = $data['photo'];
 
         
         // Salvare il nuovo ristorante nel database
@@ -79,7 +74,7 @@ class RestaurantController extends Controller
         // Sincronizzare le tipologie del ristorante
         $newRestaurant->typologies()->sync($data['typologies'] ?? []);
 
-        // Reindirizzare alla vista degli ristoranti
+        // Reindirizzare alla vista degli ristorante
         return redirect()->route('admin.restaurants.index', ['restaurant' => $newRestaurant]);
        
     }
@@ -95,37 +90,38 @@ class RestaurantController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Restaurant  $restaurant
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Restaurant $restaurant)
     {
-        //
+        $typologies = Typology::All();
+        return view('admin.restaurants.edit', compact('restaurant','typologies'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateRestaurantRequest  $request
-     * @param  \App\Models\Restaurant  $restaurant
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(UpdateRestaurantRequest $request, Restaurant $restaurant)
     {
-        //
+        //validare i dati del form
+        // $request->validate($this->validations, $this->validations_messages);
+        $data = $request->all();
+
+        $restaurant->user_id    = auth()->user()->id;
+        $restaurant->name       = $data['name'];
+        $restaurant->address    = $data['address'];
+        $restaurant->p_iva      = $data['p_iva'];
+        $restaurant->photo      = $data['photo'];
+
+        // Sincronizzare le tipologie del ristorante
+        $restaurant->typologies()->sync($data['typologies'] ?? []);
+
+        $restaurant->update();
+
+        // Reindirizzare alla vista degli ristorante
+        return redirect()->route('admin.restaurants.edit', ['restaurant' => $restaurant->id]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Restaurant  $restaurant
-     * @return \Illuminate\Http\Response
-     */
+    
     public function destroy(Restaurant $restaurant)
     {
-        //
+        // $doctor->promotions()->detach();
+        // return to_route('admin.dashboard.index')->with('delete_success', $doctor);
     }
 }

@@ -40,24 +40,24 @@
                 <input type="text" class="rounded @error('photo') is-invalid @enderror" id="photo" name="photo" value="{{ old('photo') }}">
             </div>
             <div class="col-span-full sm:col-span-6">
-                <label for="typology" class="form-label"style="font-weight:700; font-size:20px">
-                    Typologies
-                </label>
-                <select 
-                class="w-full rounded-md focus:ring focus:ri focus:ri dark:border-gray-700 dark:text-gray-900 form-select 
-                @error('typology_id') is-invalid @enderror" 
-                id="typology" 
-                name="typology_id">
-                    <option selected>
-                        Change typology
-                    </option>
-    
-                    @foreach ($typologies as $typology)
-                        <option value="{{ $typology->id }}">{{ $typology->name }}</option>
+                <div class="col-span-full sm:col-span-6">
+                    <label for="typology" class="form-label"style="font-weight:700; font-size:20px">
+                        Typologies
+                    </label>
+                    @foreach($typologies as $typology)
+                        <div class="mb-3 form-check">
+                            <input
+                                type="checkbox"
+                                class="form-check-input"
+                                id="typology{{ $typology->id }}"
+                                name="typologies[]"
+                                value="{{ $typology->id }}"
+                                @if (in_array($typology->id, old('typologies') ?: [])) checked @endif
+                            >
+                            <label class="form-check-label" for="typology{{ $typology->id }}">{{ $typology->name }}</label>
+                            
+                        </div>
                     @endforeach
-                </select>
-                <div class="invalid-feedback">
-                    @error('typology_id') {{ $message }} @enderror
                 </div>
             </div>
 
