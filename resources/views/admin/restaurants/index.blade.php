@@ -16,20 +16,14 @@
             <button class="btn btn-info mt-4">
                 <a >Cambia le informazioni</a>
             </button>
+
+            <form class="d-inline-block" action="{{ route('admin.restaurants.destroy', $restaurant->id) }}" method="POST" onsubmit="return confirm('Sei sicuro di voler eliminare questo ristorante?');">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="font-semibold my-second-btn p-2 btn btn-danger">Elimina Ristorante</button>
+            </form>
         @else
             <p>You don't have a restaurant yet.</p>
         @endif
-
-        {{-- <form
-            action=""
-            data-template="{{ route('admin.restaurants.destroy', ['restaurant' => '*****'], ['restaurant'=> $restaurant->id]) }}"
-            method="POST"
-            class="d-inline-block"
-            id="confirm-delete"
-            >
-            @csrf
-            @method('delete')
-                <button class="font-semibold my-second-btn p-2">Elimina Ristorante</button>
-        </form> --}}
     </div>
 @endsection
