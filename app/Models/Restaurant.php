@@ -12,7 +12,6 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Restaurant extends Model
 {
     use HasFactory;
-    use SoftDeletes;
 
     /* relazione one to one con la tabella user */
     public function user(): BelongsTo
@@ -31,7 +30,5 @@ class Restaurant extends Model
     {
         return $this->hasMany(Dish::class);
     }
-
-    
 }   
 

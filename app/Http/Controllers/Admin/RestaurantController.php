@@ -122,12 +122,14 @@ class RestaurantController extends Controller
     
     public function destroy(Restaurant $restaurant)
     {   
+        $restaurant->typologies()->sync([]);
 
-        // if ($restaurant->file){
-        //     Storage::delete($restaurant->file);
-        // }
-        // $restaurant->typologies()->detach();
-        // $restaurant->forceDelete();
-        // return to_route('admin.restaurants.index')->with('delete_success', $restaurant);
+        if ($restaurant->photo){
+            Storage::delete($restaurant->photo);
+        }
+
+        $restaurant->delete();
+        
+        return redirect()->route('admin.restaurants.index')->with('delete_success', $restaurant);
     }
 }

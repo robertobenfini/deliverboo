@@ -22,25 +22,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth', 'verified')
-    ->name('admin.')
+// Rotte per il pannello di controllo dell'amministratore
+Route::middleware(['auth', 'verified'])
     ->prefix('admin')
+    ->name('admin.')
     ->group(function () {
-
+        // Rotte per i ristoranti
         Route::resource('restaurants', RestaurantController::class);
-    });
-Route::middleware('auth', 'verified')
-    ->name('admin.')
-    ->prefix('admin')
-    ->group(function () {
 
+        // Rotte per i piatti
         Route::resource('dishes', DishController::class);
+
+        // Altre rotte amministrative, se necessario
     });
+
+// Rotte per il profilo utente
 Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('dashboard');
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
