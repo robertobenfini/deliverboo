@@ -18,6 +18,8 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+
+                    <h1>ciao</h1>
                 </div>
             </div>
         </div>
