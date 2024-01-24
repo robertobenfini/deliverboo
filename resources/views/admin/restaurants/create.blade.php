@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
     <form 
@@ -6,13 +6,14 @@
     action="{{ route('admin.restaurants.store') }}" 
     enctype="multipart/form-data"  
     novalidate
-    class="container"
+    class="container-fluid d-flex flex-column"
     >
         {{-- Per protezione dati --}}
         @csrf 
         {{-- Per protezione dati --}}
 
-        <fieldset class="d-flex">
+    <div class="container d-flex p-4">
+        <fieldset class="d-flex flex-column">
             <div class="">
                 <p class="font-medium">Informations</p>
                 <p class="text-xs">Put the information here to create a new restaurant</p>
@@ -39,7 +40,7 @@
                 <label for="">Photo</label>
                 <input type="text" class="rounded @error('photo') is-invalid @enderror" id="photo" name="photo" value="{{ old('photo') }}">
             </div>
-            <div class="col-span-full sm:col-span-6">
+            <div class="col-span-full sm:col-span-6 mt-3">
                 <label for="typology" class="form-label"style="font-weight:700; font-size:20px">
                     Typologies
                 </label>
@@ -60,10 +61,10 @@
                     @error('typology_id') {{ $message }} @enderror
                 </div>
             </div>
-
-            <div class="">
-                <button class="btn btn-primary">Create</button>
+            <div class="mt-4 d-flex justify-content-center">
+                <button class="btn btn-primary mt-4">Create</button>
             </div>
         </fieldset>
+    </div>
     </form>
 @endsection
