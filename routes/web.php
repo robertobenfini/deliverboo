@@ -1,8 +1,11 @@
 <?php
 
-use App\Http\Controllers\Admin\RestaurantController;
-use App\Http\Controllers\ProfileController;
+use App\Models\Dish;
+
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\DishController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\RestaurantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,13 +31,19 @@ Route::middleware('auth', 'verified')
     ->prefix('admin')
     ->group(function () {
 
-    Route::resource('restaurants', RestaurantController::class);   
+        Route::resource('restaurants', RestaurantController::class);
+    });
+Route::middleware('auth', 'verified')
+    ->name('admin.')
+    ->prefix('admin')
+    ->group(function () {
 
-});
+        Route::resource('dishes', DishController::class);
+    });
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
