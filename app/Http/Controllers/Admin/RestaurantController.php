@@ -7,6 +7,7 @@ use App\Models\Restaurant;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\StoreRestaurantRequest;
 use App\Http\Requests\UpdateRestaurantRequest;
 
@@ -115,13 +116,18 @@ class RestaurantController extends Controller
         $restaurant->update();
 
         // Reindirizzare alla vista degli ristorante
-        return redirect()->route('admin.restaurants.edit', ['restaurant' => $restaurant->id]);
+        return redirect()->route('admin.restaurants.index', ['restaurant' => $restaurant->id]);
     }
 
     
     public function destroy(Restaurant $restaurant)
-    {
-        // $doctor->promotions()->detach();
-        // return to_route('admin.dashboard.index')->with('delete_success', $doctor);
+    {   
+
+        // if ($restaurant->file){
+        //     Storage::delete($restaurant->file);
+        // }
+        // $restaurant->typologies()->detach();
+        // $restaurant->forceDelete();
+        // return to_route('admin.restaurants.index')->with('delete_success', $restaurant);
     }
 }
