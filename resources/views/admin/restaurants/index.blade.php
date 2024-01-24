@@ -19,5 +19,17 @@
         @else
             <p>You don't have a restaurant yet.</p>
         @endif
+
+        {{-- <form
+            action=""
+            data-template="{{ route('admin.restaurants.destroy', ['restaurant' => '*****'], ['restaurant'=> $restaurant->id]) }}"
+            method="POST"
+            class="d-inline-block"
+            id="confirm-delete"
+            >
+            @csrf
+            @method('delete')
+                <button class="font-semibold my-second-btn p-2">Elimina Ristorante</button>
+        </form> --}}
     </div>
 @endsection
