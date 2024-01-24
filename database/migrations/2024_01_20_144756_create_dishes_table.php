@@ -20,8 +20,9 @@ return new class extends Migration
             $table->text('description', 5000);
             $table->string('ingredients', 500);
             $table->tinyInteger('visible');
-            $table->decimal('price', 10,2);
+            $table->decimal('price', 10, 2);
             $table->timestamps();
+            $table->softDeletes();
 
             // Aggiungi la chiave esterna
             $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('cascade');
