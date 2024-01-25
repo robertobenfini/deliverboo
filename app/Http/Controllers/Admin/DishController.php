@@ -10,11 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class DishController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
         $user = Auth::user(); 
@@ -24,39 +20,38 @@ class DishController extends Controller
         return view('admin.restaurants.dishes.index', compact('dishes', 'restaurant'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        return view('admin.restaurants.dishes.create');
+        return view('admin.dishes.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
 
 
         $data = $request->all();
 
-        $newdish = new Dish();
+        // dd($data);
+        
+        // Recupera l'ID del ristorante associato all'utente autenticato
+        $restaurantId = auth()->user()->restaurant->id;
+        
+        $newDish = new Dish();
+         // Se il campo 'visible' non è stato fornito, imposta un valore predefinito
+        $visible = $request->has('visible') ? $request->visible : true;
 
-        $newdish->name = $data['name'];
-        $newdish->description = $data['description'];
-        $newdish->ingredients = $data['ingredients'];
-        $newdish->visible = $data['visible'];
-        $newdish->price = $data['price'];
+        $newDish->name = $data['name'];
+        $newDish->description = $data['description'];
+        $newDish->ingredients = $data['ingredients'];
+        $newDish->visible = $visible;
+        $newDish->price = $data['price'];
 
-        $newdish->save();
+        // Assegna l'ID del ristorante al nuovo piatto
+        $newDish->restaurant_id = $restaurantId;
 
-        return redirect()->route('admin.restaurants.dishes.create', ['dish' => $newdish]);
+        $newDish->save();
+
+        return redirect()->route('admin.restautants.index', ['dish' => $newDish]);
     }
 
     /**

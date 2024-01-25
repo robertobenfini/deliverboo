@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('restaurant_id');
             $table->string('name', 40);
-            $table->text('description', 5000);
+            $table->text('description', 5000)->nullable();
             $table->string('ingredients', 500);
             $table->tinyInteger('visible');
             $table->decimal('price', 10, 2);

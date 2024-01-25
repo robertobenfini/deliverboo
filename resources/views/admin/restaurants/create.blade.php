@@ -59,22 +59,7 @@
                     @endforeach
                 </div>
 
-                <div class="col-span-full sm:col-span-6 mt-3">
-                    <label for="typology" class="form-label" style="font-weight: 700; font-size: 20px">Typology</label>
-                    <select 
-                        class="w-full rounded-md focus:ring focus:ri focus:ri dark:border-gray-700 dark:text-gray-900 form-select @error('typology_id') is-invalid @enderror" 
-                        id="typology" 
-                        name="typology_id"
-                    >
-                        <option selected>
-                            Change typology
-                        </option>
-    
-                        @foreach ($typologies as $typology)
-                            <option value="{{ $typology->id }}">{{ $typology->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
+                
 
                 <div class="mt-4 d-flex justify-content-center">
                     <button class="btn btn-primary mt-4">Create</button>
