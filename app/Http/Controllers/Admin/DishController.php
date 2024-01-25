@@ -17,7 +17,7 @@ class DishController extends Controller
         $restaurant = $user->restaurant; 
     
         $dishes = $restaurant->dishes;
-        return view('admin.restaurants.dishes.index', compact('dishes', 'restaurant'));
+        return view('admin.dishes.index', compact('dishes', 'restaurant'));
     }
 
     public function create()
@@ -51,7 +51,7 @@ class DishController extends Controller
 
         $newDish->save();
 
-        return redirect()->route('admin.restautants.index', ['dish' => $newDish]);
+        return redirect()->route('admin.restaurants.index', ['dish' => $newDish]);
     }
 
     /**
