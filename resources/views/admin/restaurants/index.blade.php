@@ -13,15 +13,18 @@
             <p class="fs-5"><strong>Via: </strong>{{$restaurant->address}}</p>
             <img class="w-50" src="{{$restaurant->photo}}" alt="">
             {{-- Altri dettagli del ristorante possono essere visualizzati qui --}}
-            <button class="btn btn-info mt-4">
-                <a >Cambia le informazioni</a>
-            </button>
 
-            <form class="d-inline-block" action="{{ route('admin.restaurants.destroy', $restaurant->id) }}" method="POST" onsubmit="return confirm('Sei sicuro di voler eliminare questo ristorante?');">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="font-semibold my-second-btn p-2 btn btn-danger">Elimina Ristorante</button>
-            </form>
+            <div class="d-flex gap-3">
+                <button class="btn btn-info mt-4">
+                    <a >Cambia le informazioni</a>
+                </button>
+                
+                <form class="d-inline-block" action="{{ route('admin.restaurants.destroy', $restaurant->id) }}" method="POST" onsubmit="return confirm('Sei sicuro di voler eliminare questo ristorante?');">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="mt-4 font-semibold my-second-btn p-2 btn btn-danger">Elimina Ristorante</button>
+                </form>
+            </div>
         @else
             <p>You don't have a restaurant yet.</p>
         @endif
