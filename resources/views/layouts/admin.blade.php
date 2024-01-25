@@ -56,11 +56,14 @@
 								</li>
 							@endif
 
-							<li class="nav-item">
-								<a class="nav-link text-white" {{ Route::currentRouteName() == 'admin.dishes.create' ? 'bg-secondary' : '' }} href="{{route('admin.dishes.create')}}">
-									<i class="fa-solid fa-plus fa-lg fa-fw"></i> Aggiungi Piatto
-								</a>
-							</li>
+
+							@if ($restaurant)
+								<li class="nav-item">
+									<a class="nav-link text-white {{ Route::currentRouteName() == 'admin.dishes.create' ? 'bg-secondary' : '' }}" href="{{ route('admin.dishes.create') }}">
+										<i class="fa-solid fa-plus fa-lg fa-fw"></i> Aggiungi Piatto
+									</a>
+								</li>
+							@endif
 
 							<li class="nav-item">
 								<a class="nav-link text-white" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
