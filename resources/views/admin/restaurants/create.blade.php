@@ -131,16 +131,11 @@
                         <input type="text" class="rounded @error('photo') is-invalid @enderror" id="photo" name="photo" value="{{ old('photo') }}">
 
                         <div class="mt-4">
-                            <button type="submit" class="btn btn-primary">Salva</button>
+                            <button type="submit" class="btn btn-primary">Create</button>
                             <button type="reset" class="btn btn-dark">Reset</button>
                         </div>
-                    @endforeach
-                </div>
-
-                
-
-                <div class="mt-4 d-flex justify-content-center">
-                    <button class="btn btn-primary mt-4">Create</button>
+                        
+                    </form>
                 </div>
             </fieldset>
         </div>

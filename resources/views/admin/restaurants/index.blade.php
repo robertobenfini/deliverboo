@@ -41,15 +41,15 @@
         @endif
     </div>
 
-        @if ($restaurant->dishes->count() > 0)
-        <h4>Dishes</h4>
-        <ul>
-            @foreach ($restaurant->dishes as $dish)
-                <li>{{ $dish->name }} - {{ $dish->price }}€</li>
-                
-            @endforeach
-        </ul>
+        @if ($restaurant && $restaurant->dishes->count() > 0)
+            <h4>Dishes</h4>
+            <ul>
+                @foreach ($restaurant->dishes as $dish)
+                    <li>{{ $dish->name }} - {{ $dish->price }}€</li>
+                    
+                @endforeach
+            </ul>
         @else
-            <p>No dishes available for {{ $restaurant->name }}.</p>
+            Non ci sono piatti associati a questo ristorante
         @endif
 @endsection
