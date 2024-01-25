@@ -14,5 +14,6 @@
         @else
             <p>No dishes available for {{ $restaurant->name }}.</p>
         @endif
+        
     </div>
 @endsection
