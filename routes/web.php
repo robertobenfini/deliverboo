@@ -22,6 +22,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 // Rotte per il pannello di controllo dell'amministratore
 Route::middleware(['auth', 'verified'])
     ->prefix('admin')
@@ -34,7 +35,9 @@ Route::middleware(['auth', 'verified'])
         Route::resource('dishes', DishController::class);
 
         // Altre rotte amministrative, se necessario
-    });
+});
+
+
 
 // Rotte per il profilo utente
 Route::middleware('auth')->group(function () {

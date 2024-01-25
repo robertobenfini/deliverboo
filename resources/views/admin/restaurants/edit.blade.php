@@ -13,7 +13,7 @@
         {{-- Per protezione dati --}}
         @method('PUT')
 
-        <fieldset class="d-flex">
+        <fieldset class="d-flex flex-column">
             <div class="">
                 <p class="font-medium">Informations</p>
                 <p class="text-xs">Put the information here to create a new restaurant</p>
