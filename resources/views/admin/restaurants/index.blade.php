@@ -43,9 +43,6 @@
 
         @if ($restaurant->dishes->count() > 0)
         <h4>Dishes</h4>
-        <button>
-            <a href="{{ route("admin.dishes.create") }}">Create new Dish</a>
-        </button>
         <ul>
             @foreach ($restaurant->dishes as $dish)
                 <li>{{ $dish->name }} - {{ $dish->price }}€</li>

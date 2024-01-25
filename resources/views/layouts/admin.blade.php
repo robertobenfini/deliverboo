@@ -44,7 +44,7 @@
 
                             <li class="nav-item">
 								<a class="nav-link text-white" {{ Route::currentRouteName() == 'admin.restaurants.index' ? 'bg-secondary' : '' }} href="{{route('admin.restaurants.index')}}">
-									<i class="fa-solid fa-list-alt fa-lg fa-fw"></i> Il mio ristorante
+									<i class="fa-solid fa-utensils fa-lg fa-fw"></i> Il mio ristorante
 								</a>
 							</li>
 
@@ -55,6 +55,12 @@
 									</a>
 								</li>
 							@endif
+
+							<li class="nav-item">
+								<a class="nav-link text-white" {{ Route::currentRouteName() == 'admin.dishes.create' ? 'bg-secondary' : '' }} href="{{route('admin.dishes.create')}}">
+									<i class="fa-solid fa-plus fa-lg fa-fw"></i> Aggiungi Piatto
+								</a>
+							</li>
 
 							<li class="nav-item">
 								<a class="nav-link text-white" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

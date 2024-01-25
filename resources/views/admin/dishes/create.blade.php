@@ -7,7 +7,7 @@
         @csrf
         {{-- Per protezione dati --}}
 
-        <fieldset class="d-flex">
+        <fieldset class="d-flex flex-column gap-3">
             <div class="">
                 <p class="font-medium">Informations</p>
                 <p class="text-xs">Put the information here to create a new dish</p>
@@ -28,7 +28,7 @@
 
                 <div class="">
                     <label for="description" class="form-label" style="font-weight:700; font-size:20px">
-                        description
+                        Description
                     </label>
                     <input type="text" class=" rounded @error('description') is-invalid @enderror" id="description"
                        name="description" value="{{ old('description') }}">
@@ -41,7 +41,7 @@
                 </div>
                 <div class="">
                     <label for="ingredients" class="form-label" style="font-weight:700; font-size:20px">
-                        ingredients
+                        Ingredients
                     </label>
                     <input type="text" class=" rounded @error('ingredients') is-invalid @enderror" id="ingredients"
                         name="ingredients" value="{{ old('ingredients') }}">
@@ -54,7 +54,7 @@
                 </div>
                 <div class="">
                     <label for="price" class="form-label" style="font-weight:700; font-size:20px">
-                        price
+                        Price
                     </label>
                     <input type="number" class=" rounded @error('price') is-invalid @enderror" id="price"
                         name="price" value="{{ old('price') }}">
