@@ -35,7 +35,8 @@ Route::middleware(['auth', 'verified'])
         Route::resource('dishes', DishController::class);
 
         // Altre rotte amministrative, se necessario
-});
+    }
+);
 
 
 

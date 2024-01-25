@@ -25,10 +25,15 @@
                     <a href="{{ route('admin.restaurants.edit', $restaurant->id) }}" class="text-decoration-none text-white">Modifica informazioni</a>
                 </button>
                 
-                <form class="d-inline-block" action="{{ route('admin.restaurants.destroy', $restaurant->id) }}" method="POST" onsubmit="return confirm('Sei sicuro di voler eliminare questo ristorante?');">
+                <form   
+                    class="d-inline-block" 
+                    action="{{ route('admin.restaurants.destroy', ['restaurant'=> $restaurant->id]) }}" 
+                    method=POST 
+                    {{-- onsubmit="return confirm('Sei sicuro di voler eliminare questo ristorante?');" --}}
+                >
                     @csrf
                     @method('DELETE')
-                    <a type="submit" class="mt-4 p-2 btn btn-danger">Elimina Ristorante</a>
+                    <button type="submit" class="mt-4 p-2 btn btn-danger">Elimina Ristorante</button>
                 </form>
             </div>
 

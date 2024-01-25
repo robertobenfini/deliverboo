@@ -122,6 +122,7 @@ class RestaurantController extends Controller
     
     public function destroy(Restaurant $restaurant)
     {   
+        
         $restaurant->typologies()->sync([]);
 
         if ($restaurant->photo){

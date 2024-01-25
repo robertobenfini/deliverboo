@@ -42,17 +42,17 @@
                         <div class="form-group">
                             <p>Seleziona le categorie *</p>
                             <div class="form-check form-check-inline flex-wrap">
-                                @foreach ($typologies as $cat)
+                                @foreach ($typologies as $typology)
                                     <div class="d-flex align-items-center">
-                                        <input class="form-check-input" type="checkbox" name="categories[]"
-                                            id="{{ $cat->id }}" value="{{ $cat->id }}"
-                                            @if (in_array($cat->id, old('categories', []))) checked @endif>
+                                        <input class="form-check-input" type="checkbox" name="typologies[]"
+                                            id="{{ $typology->id }}" value="{{ $typology->id }}"
+                                            @if (in_array($typology->id, old('typologies', []))) checked @endif>
                                         <label class="form-check-label mr-3"
-                                            for="inlineCheckbox1">{{ $cat->name }}</label>
+                                            for="inlineCheckbox1">{{ $typology->name }}</label>
                                     </div>
                                 @endforeach
                             </div>
-                            @error('categories')
+                            @error('typology')
                                 <div class="invalid-feedback d-block">
                                     {{ $message }}
                                 </div>
