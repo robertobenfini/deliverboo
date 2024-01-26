@@ -44,14 +44,30 @@
             <h4 class="text-center mb-4">Dishes</h4>
             <ul class="d-flex gap-3">
                 @foreach ($restaurant->dishes as $dish)
-                <div class="card" style="width: 18rem;">
+                <div class="card" style="width: 20rem;">
                     <img src="{{ $dish->photo ? $dish->photo : 'https://media.istockphoto.com/id/1147544807/it/vettoriale/la-commissione-per-la-immagine-di-anteprima-grafica-vettoriale.jpg?s=612x612&w=0&k=20&c=gsxHNYV71DzPuhyg-btvo-QhhTwWY0z4SGCSe44rvg4=' }}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{ $dish->name }}</h5>
                         <p class="card-text">{{ $dish->price }}€</p>
-                        <a href="{{ route('admin.dishes.show', $dish->id) }}" class="btn btn-primary">Go somewhere</a>
+                        <div class="d-flex gap-1 justify-content-center">
+                            <a href="{{ route('admin.dishes.show', $dish->id) }}" class="btn btn-primary">Go somewhere</a>
+                        <a href="{{ route('admin.dishes.edit', $dish->id) }}" class="btn btn-primary">edit</a>
+                        <form   
+                            class="d-inline-block" 
+                            action="{{ route('admin.dishes.destroy', ['dish'=> $dish->id]) }}" 
+                            method=POST 
+                            {{-- onsubmit="return confirm('Sei sicuro di voler eliminare questo ristorante?');" --}}
+                        >
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Elimina</button>
+                        </form>
+                        </div>
+                        
                     </div>
                 </div>
+                        
+                        
                 @endforeach
             </ul>
             @else

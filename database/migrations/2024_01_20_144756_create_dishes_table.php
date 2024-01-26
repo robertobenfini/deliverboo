@@ -23,7 +23,6 @@ return new class extends Migration
             $table->decimal('price', 10, 2);
             $table->string('photo', 1500)->nullable();
             $table->timestamps();
-            $table->softDeletes();
 
             // Aggiungi la chiave esterna
             $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('cascade');

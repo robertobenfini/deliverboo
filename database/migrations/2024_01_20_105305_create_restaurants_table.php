@@ -17,7 +17,6 @@ return new class extends Migration
             $table->bigInteger('p_iva');
             $table->string('photo', 1500)->nullable();
             $table->timestamps();
-            $table->softDeletes();
             
             // Aggiungi la chiave esterna
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
