@@ -8,9 +8,10 @@
                 <p class="card-text"><strong>Description:</strong> {{ $dish->description }}</p>
                 <p class="card-text"><strong>Ingredients:</strong> {{ $dish->ingredients }}</p>
                 <p class="card-text"><strong>Price:</strong> {{ $dish->price }}€</p>
-                <a href="{{ route('admin.restaurants.index') }}" class="btn btn-primary">Back to Dishes</a>
-                <a href="" class="btn btn-info">Change information</a>
-                <a href="" class="btn btn-danger">Delete Dishes</a>
+                <div class="d-flex justify-content-around">
+                    <a href="{{ route('admin.dishes.edit', $dish->id) }}" class="btn btn-info">Change information</a>
+                    <a href="{{ route('admin.restaurants.index') }}" class="btn btn-primary">Back to Dishes</a>
+                </div>
             </div>
         </div>
     </div>
