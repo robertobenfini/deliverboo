@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
     <form method="POST" action="{{ route('admin.dishes.store') }}" enctype="multipart/form-data" novalidate
