@@ -45,6 +45,7 @@ class DishController extends Controller
         $newDish->ingredients = $data['ingredients'];
         $newDish->visible = $visible;
         $newDish->price = $data['price'];
+        $newDish->photo       = $data['photo'];
 
         // Assegna l'ID del ristorante al nuovo piatto
         $newDish->restaurant_id = $restaurantId;
@@ -62,7 +63,9 @@ class DishController extends Controller
      */
     public function show($id)
     {
-        //
+        $dish = Dish::findOrFail($id);
+
+        return view('admin.dishes.show', compact('dish'));
     }
 
     /**

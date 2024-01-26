@@ -65,6 +65,17 @@
                         @enderror
                     </div>
                 </div>
+                <label for="photo" class="form-label" style="font-weight:700; font-size:20px">
+                    Photo
+                </label>
+                <input type="text" class=" rounded @error('photo') is-invalid @enderror" id="photo"
+                name="photo" value="{{ old('photo') }}">
+                <div class="invalid-feedback">
+                    @error('photo')
+                        {{ $message }}
+                    @enderror
+                </div>
+
                 <div class="">
                     <button class="btn btn-primary">Create</button>
                 </div>

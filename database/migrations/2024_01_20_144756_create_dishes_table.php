@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('ingredients', 500);
             $table->tinyInteger('visible');
             $table->decimal('price', 10, 2);
+            $table->string('photo', 1500)->nullable();
             $table->timestamps();
             $table->softDeletes();
 
