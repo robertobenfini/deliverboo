@@ -11,6 +11,22 @@ use Illuminate\Support\Facades\Auth;
 class DishController extends Controller
 {
     
+    private $validations = [
+        'name' => "required|string|max:255",
+        'description' => "required|string|max:2500",
+        'ingredients' => "required|string|max:255",
+        'price' => "required|numeric|max:255",
+
+    ];
+    private $validations_messages = [
+        'required' => 'il campo :attribute è obbligatorio',
+        'min' => 'il campo :attribute deve avere minimo :min caratteri',
+        'max' => 'il campo :attribute non può superare i :max caratteri',
+        'url' => 'il campo deve essere un url valido',
+        'exists' => 'Valore non valido'
+    ];
+
+    
     public function index()
     {
         $user = Auth::user(); 
@@ -27,7 +43,7 @@ class DishController extends Controller
 
     public function store(Request $request)
     {
-
+        $request->validate($this->validations, $this->validations_messages);
 
         $data = $request->all();
 
@@ -37,8 +53,8 @@ class DishController extends Controller
         $restaurantId = auth()->user()->restaurant->id;
         
         $newDish = new Dish();
-         // Se il campo 'visible' non è stato fornito, imposta un valore predefinito
-        $visible = $request->has('visible') ? $request->visible : true;
+        
+        $visible = $request->has('visible') ? true : false;
 
         $newDish->name = $data['name'];
         $newDish->description = $data['description'];
@@ -65,37 +81,37 @@ class DishController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+  
+    public function edit(Dish $dish)
     {
-        //
+        return view('admin.dishes.edit', compact('dish'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(Request $request, Dish $dish)
     {
-        //
+        $request->validate($this->validations, $this->validations_messages);
+
+        $data = $request->all();
+
+        $visible = $request->has('visible') ? true : false;
+
+        $dish->name = $data['name'];
+        $dish->description = $data['description'];
+        $dish->ingredients = $data['ingredients'];
+        $dish->visible = $visible;
+        $dish->price = $data['price'];
+
+
+        $dish->update();
+
+        return redirect()->route('admin.restaurants.index', ['dish' => $dish->id]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+  
+    public function destroy(Dish $dish)
     {
-        //
+        $dish->delete();
+        
+        return redirect()->route('admin.restaurants.index')->with('delete_success', $dish);
     }
 }

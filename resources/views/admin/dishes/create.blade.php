@@ -65,6 +65,21 @@
                         @enderror
                     </div>
                 </div>
+
+                <div class="">
+                    <label for="visible" class="form-label" style="font-weight:700; font-size:20px">
+                        Visible
+                    </label>
+                    <input type="checkbox" class=" rounded @error('visible') is-invalid @enderror" id="visible"
+                        name="visible" 
+                        value="{{ old('visible') }}"
+                        >
+                    <div class="invalid-feedback">
+                        @error('visible')
+                            {{ $message }}
+                        @enderror
+                    </div>
+                </div>
                 <div class="">
                     <button class="btn btn-primary">Create</button>
                 </div>

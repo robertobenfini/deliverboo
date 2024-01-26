@@ -42,6 +42,17 @@
                 <ul>
                     @foreach ($restaurant->dishes as $dish)
                         <li>{{ $dish->name }} - {{ $dish->price }}€</li>
+                        <button><a href="{{ route('admin.dishes.edit', $dish->id) }}">edit</a></button>
+                        <form   
+                            class="d-inline-block" 
+                            action="{{ route('admin.dishes.destroy', ['dish'=> $dish->id]) }}" 
+                            method=POST 
+                            {{-- onsubmit="return confirm('Sei sicuro di voler eliminare questo ristorante?');" --}}
+                        >
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="mt-4 p-2 btn btn-danger">Elimina</button>
+                        </form>
                     @endforeach
                 </ul>
             @else

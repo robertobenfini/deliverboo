@@ -22,7 +22,6 @@ return new class extends Migration
             $table->tinyInteger('visible');
             $table->decimal('price', 10, 2);
             $table->timestamps();
-            $table->softDeletes();
 
             // Aggiungi la chiave esterna
             $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('cascade');
