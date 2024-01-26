@@ -74,11 +74,10 @@
                     <ul class="d-flex gap-3">
                         @foreach ($restaurant->dishes as $dish)
                             <div class="card" style="width: 20rem;">
-                                <!-- Existing card content -->
-
+                                <img src="{{ $dish->photo ? $dish->photo : 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=' }}" class="card-img-top" alt="...">
                                 <div class="card-body">
-                                    <!-- Existing card body content -->
-
+                                    <h5 class="card-title">{{$dish->name}}</h5>
+                                    <p class="card-text">{{$dish->price}}€</p>
                                     <div class="d-flex justify-content-between">
                                         <div>
                                             <a href="{{ route('admin.dishes.show', $dish->id) }}" class="btn btn-primary">Visualizza Piatto</a>
