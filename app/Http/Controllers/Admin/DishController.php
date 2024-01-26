@@ -55,12 +55,7 @@ class DishController extends Controller
         return redirect()->route('admin.restaurants.index', ['dish' => $newDish]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+   
     public function show($id)
     {
         $dish = Dish::findOrFail($id);
