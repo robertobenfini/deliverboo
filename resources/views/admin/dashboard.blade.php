@@ -40,7 +40,7 @@
                             
                             <div class="p-4 gs-card-text">
                                 <span><i class="fa-solid fa-right-long"></i></span>
-                                <span><a href="{{ route('admin.restaurants.index') }}" class="gs-link">I tuoi ristoranti</a></span>
+                                <span><a href="{{ route('admin.restaurants.index') }}" class="gs-link">Vai al tuo ristorante</a></span>
                             </div>
                             
                         </div>
