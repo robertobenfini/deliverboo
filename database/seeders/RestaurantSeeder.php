@@ -33,9 +33,16 @@ class RestaurantSeeder extends Seeder
             $newRestaurant->address = $restaurantData['address'];
             $newRestaurant->p_iva = $restaurantData['p_iva'];
             $newRestaurant->photo = $restaurantData['photo'];
-            $count++;
 
             $newRestaurant->save();
+
+            // Associating typologies with the restaurant
+            foreach ($restaurantData['typologies'] as $typologyName) {
+                $typology = Typology::firstOrCreate(['name' => $typologyName]);
+                $newRestaurant->typologies()->attach($typology);
+            }
+
+            $count++;
         }
     }
 }
