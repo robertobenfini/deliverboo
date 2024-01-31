@@ -15,10 +15,10 @@ class OrderSeeder extends Seeder
      */
     public function run()
     {
-        $ordersData = config('orders');
+        $orders = config('orders');
 
-        foreach ($ordersData as $orderData) {
-            Order::create($orderData);
+        foreach ($orders as $arrOrders) {
+            Order::create($arrOrders);
         }
     }
 }

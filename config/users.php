@@ -19,6 +19,7 @@ return [
                 'price' => 8,
                 'ingredients' => 'Farina, acqua, olio, sale, pepe, pomodoro, mozzarella, basilico',
                 'description' => 'Classica pizza romana fatta secondo tradizione, bassa e scrocchiarella',
+                'orders' => [1, 2],
             ],
         ],
     ],
