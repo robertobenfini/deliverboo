@@ -7,5 +7,11 @@ use Illuminate\Http\Request;
 
 class TypologyController extends Controller
 {
-    
+    public function index(){
+        $typologies = Typology::all();
+        return response()->json([
+            'success' => true,
+            'results' => $typologies
+        ]);
+    }
 }
