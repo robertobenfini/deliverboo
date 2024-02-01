@@ -10,9 +10,9 @@ class Order extends Model
 {
     use HasFactory;
 
-    /* relazione many to many alla tabella tipologie */
+    /* relazione many to many alla tabella orders */
     public function dishes(): BelongsToMany
     {
-        return $this->belongsToMany(Typology::class);
+        return $this->belongsToMany(Dish::class);
     }
 }

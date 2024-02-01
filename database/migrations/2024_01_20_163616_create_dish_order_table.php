@@ -12,7 +12,7 @@ return new class extends Migration
         Schema::create('dish_order', function (Blueprint $table) {
             $table->unsignedBigInteger('dish_id');
             $table->unsignedBigInteger('order_id');
-            $table->integer('quantity', 40);
+            $table->integer('quantity')->default(1);
             $table->timestamp('created_at');
 
             $table->foreign('dish_id')->references('id')->on('dishes');

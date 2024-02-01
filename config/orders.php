@@ -6,7 +6,8 @@ return [
         'address' => 'Via Roma 32, Frosinone',
         'phone' => '3281234567',
         'status' => true,
-        'totalprice' => 12.60,
+        'totalprice' => 8,
+        'dishes' => [1]
     ],
     [
         'name' => 'Francesco',
@@ -14,6 +15,7 @@ return [
         'address' => 'Via Milano 54, Chieti',
         'phone' => '3287654321',
         'status' => true,
-        'totalprice' => 67.60,
+        'totalprice' => 8,
+        'dishes' => [1]
     ],
 ];
