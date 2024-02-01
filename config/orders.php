@@ -7,6 +7,7 @@ return [
         'phone' => '3281234567',
         'status' => true,
         'totalprice' => 8,
+        'dishes' => [1]
     ],
     [
         'name' => 'Francesco',
@@ -15,5 +16,6 @@ return [
         'phone' => '3287654321',
         'status' => true,
         'totalprice' => 8,
+        'dishes' => [1]
     ],
 ];
