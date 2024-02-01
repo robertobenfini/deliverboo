@@ -18,4 +18,31 @@ return [
         'totalprice' => 8,
         'dishes' => [1]
     ],
+    [
+        'name' => 'Giovanni',
+        'lastname' => 'Rossi',
+        'address' => 'Via Garibaldi 10, Roma',
+        'phone' => '3339876543',
+        'status' => true,
+        'totalprice' => 12,
+        'dishes' => [1, 2, 3] 
+    ],
+    [
+        'name' => 'Laura',
+        'lastname' => 'Bianchi',
+        'address' => 'Corso Italia 20, Milano',
+        'phone' => '3451234567',
+        'status' => true,
+        'totalprice' => 15,
+        'dishes' => [1, 2, 4] 
+    ],
+    [
+        'name' => 'Mario',
+        'lastname' => 'Verdi',
+        'address' => 'Via Dante 5, Firenze',
+        'phone' => '3478765432',
+        'status' => true,
+        'totalprice' => 10,
+        'dishes' => [1, 3] 
+    ]
 ];
