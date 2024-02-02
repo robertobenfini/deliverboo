@@ -55,7 +55,16 @@ class RestaurantController extends Controller
      */
     public function show($id)
     {
-        //
+        $restaurant = Restaurant::with('typologies', 'dishes')->find($id);
+
+        if (!$restaurant) {
+            return response()->json(['error' => 'Ristorante non trovato'], 404);
+        }
+
+        return response()->json([
+            'success' => true,
+            'result' => $restaurant,
+        ]);
     }
 
     /**
