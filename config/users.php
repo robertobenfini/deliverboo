@@ -108,7 +108,7 @@ return [
             'address' => 'Via Garibaldi 10, Torino',
             'p_iva' => 1545267884455,
             'photo' => 'https://www.trattoriadamario.it/wp-content/uploads/2019/11/ristorante-pizzeria-trattoria-da-mario-scarperia.jpg',
-            'typologies' => ['Italiana'],
+            'typologies' => ['Italiano'],
         ],
         'dishes' => [
             [
@@ -129,7 +129,7 @@ return [
             'address' => 'Via Roma 78, Torino',
             'p_iva' => 1545267884456,
             'photo' => 'https://www.trattoriadamaria.it/wp-content/uploads/2021/05/trattoria-da-maria-arredamento-interno.jpg',
-            'typologies' => ['Italiana'],
+            'typologies' => ['Italiano'],
         ],
         'dishes' => [
             [
@@ -141,5 +141,4 @@ return [
             ],
         ],
     ],
-
 ];
