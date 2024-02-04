@@ -14,5 +14,14 @@
                 </div>
             </div>
         </div>
+       
+        <p class="mt-2 fs-5"><strong>Ordini:</strong>
+            <span>
+                @foreach ($dish->orders as $order)
+                   <li>{{ $order->name }} {{ $order->lastname }}, {{ $order->address }}, {{ $order->phone }}, {{ $order->totalprice }} {{ $order->created_at }}</li> 
+                @endforeach
+            </span>
+        </p>
+       
     </div>
 @endsection

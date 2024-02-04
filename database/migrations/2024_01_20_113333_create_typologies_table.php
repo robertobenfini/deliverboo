@@ -11,6 +11,7 @@ return new class extends Migration
         Schema::create('typologies', function (Blueprint $table) {
             $table->id();
             $table->string('name', 30);
+            $table->string('image', 200)->nullable();
             $table->timestamps();
         });
     }

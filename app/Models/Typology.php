@@ -10,7 +10,7 @@ class Typology extends Model
     use HasFactory;
 
     /* relazione many to many con tabella restaurant */
-    public function restaurant()
+    public function restaurants()
     {
         return $this->belongsToMany(Restaurant::class);
     }
