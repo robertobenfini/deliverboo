@@ -73,6 +73,20 @@ class="container"
         </div>
 
         <div class="">
+            <label for="photo" class="form-label" style="font-weight:700; font-size:20px">
+                photo
+            </label>
+            <input type="text" class=" rounded @error('photo') is-invalid @enderror" id="photo"
+                name="photo" value="{{ old('photo', $dish->photo) }}">
+
+            <div class="invalid-feedback">
+                @error('photo')
+                    {{ $message }}
+                @enderror
+            </div>
+        </div>
+
+        <div class="">
             <label for="visible" class="form-label" style="font-weight:700; font-size:20px">
                 Visible
             </label>
