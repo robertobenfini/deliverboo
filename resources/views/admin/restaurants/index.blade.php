@@ -71,7 +71,7 @@
             <div class="container mt-5">
                 @if ($restaurant->dishes && $restaurant->dishes->count() > 0)
                     <h4 class="text-center mb-4">Dishes</h4>
-                    <ul class="d-flex gap-3">
+                    <ul class="d-flex gap-3 flex-wrap">
                         @foreach ($restaurant->dishes as $dish)
                             <div class="card" style="width: 20rem;">
                                 <img src="{{ $dish->photo ? $dish->photo : 'https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=' }}" class="card-img-top" alt="...">
