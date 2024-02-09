@@ -1,5 +1,11 @@
+ul {
+    padding-left: 0;
+}
+a {
+    text-decoration: none;
+}
 .box {
-    width: 1000px;
+    width: 1150px;
     margin: 0 auto;
 }
 
@@ -40,14 +46,16 @@
         padding-bottom: 20px;
         border-radius: 15px;
     }
+    a {
+        background-color: rgb(0, 204, 188);
+        color: white;
+        border-radius: 10px;
+        border: none;
+        padding: 15px 20px;
+        width: 30%;
+    }
 }
-.link-know {
-    background-color: rgb(0, 204, 188);
-    color: white;
-    border-radius: 10px;
-    border: none;
-    padding: 15px 20px;
-}
+
 .supermarket,
 .restaurant {
     background-position: center;
@@ -65,7 +73,83 @@
     width: 48%;
     margin-top: 50px;
     border-radius: 10px;
+    img {
+        width: 100%;
+        border-radius: 15px;
+    }
+    padding-bottom: 30px;
 }
 ul {
     list-style: none;
+}
+.improves {
+    height: 700px;
+    background-color: rgb(3, 127, 139);
+    color: white;
+    p {
+        padding-bottom: 30px;
+    }
+}
+.improves-marketing,
+.improves-consegna,
+.improves-ritiri {
+    height: 450px;
+    width: 350px;
+    padding-left: 15px;
+    padding-bottom: 20px;
+    border-radius: 15px;
+    a {
+        background-color: rgb(0, 204, 188);
+        color: white;
+        border-radius: 10px;
+        border: none;
+        padding: 15px 20px;
+        width: 40%;
+    }
+}
+.marketing {
+    background-image: url(/public/img/barbieri.jpg);
+    background-position: center;
+}
+.consegna {
+    background-image: url(/public/img/deliveroo-consegna.jpg);
+    background-position: center;
+}
+.ritiri {
+    background-image: url(/public/img/ritiro.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.footer {
+    background-color: rgb(46, 51, 51);
+    height: 400px;
+    color: white;
+}
+.footer-card {
+    background-color: rgb(67, 72, 72);
+    width: calc(100% / 4 - 10px);
+    border-radius: 10px;
+    padding: 10px 10px;
+
+    ul {
+        list-style: none;
+
+        li {
+            padding-bottom: 8px;
+            a {
+                color: white;
+            }
+        }
+    }
+}
+.partner {
+    .footer-btn {
+        background-color: rgb(0, 204, 188);
+        color: white;
+        border-radius: 10px;
+        border: none;
+        padding: 10px 10px;
+        width: 40%;
+    }
 }
