@@ -3,7 +3,9 @@
     <div class="jumbo box d-flex  flex-column align-items-center justify-content-center">
         <h1>Diventa un partner di Deliverboo</h1>
         <h5>insieme possiamo aiutarti a raggiungere sempre più clienti</h5>
-        <button>Crea un account</button>
+        <button>
+             <a class="nav-link" href="{{ route('register') }}">Crea un account</a>
+        </button>
         <h2>Scopri i servizi che mettiamo a disposizione per attività come la tua</h2>
     </div>
     <div class="know-more-cards box d-flex justify-content-between ">
