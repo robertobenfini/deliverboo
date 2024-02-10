@@ -85,7 +85,7 @@
             </div>
         </nav>
 
-        <main class="background">
+        <main>
             @yield('content')
         </main>
     </div>
