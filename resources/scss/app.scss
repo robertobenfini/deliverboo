@@ -1,2 +1,34 @@
 @import "~bootstrap/scss/bootstrap";
 @import "welcome";
+
+* {
+    margin: 0;
+    bottom: 0;
+    box-sizing: border-box;
+}
+.background {
+    background: rgb(34, 193, 195);
+    background: linear-gradient(
+        0deg,
+        rgba(34, 193, 195, 1) 0%,
+        rgba(255, 255, 255, 1) 100%
+    );
+}
+
+.imgDelive {
+    width: 100px;
+    height: 32px;
+}
+
+.btn-primary {
+    background-color: #00ccbc;
+    border-color: #00ccbc;
+}
+
+.btn-link {
+    color: #00ccbc;
+}
+
+.background {
+    height: 87.9vh;
+}
