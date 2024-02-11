@@ -1,5 +1,7 @@
 <?php
 
+use Faker\Extension\PhoneNumberExtension;
+
 return [
     [
         'name' => 'Giuliano',
@@ -15,6 +17,7 @@ return [
         'dishes' => [
             [
                 'name' => 'Pizza Margherita',
+                'photo'=> 'https://www.finedininglovers.it/sites/g/files/xknfdk1106/files/fdl_content_import_it/margherita-50kalo.jpg',
                 'visible' => true,
                 'price' => 8,
                 'ingredients' => 'Farina, acqua, olio, sale, pepe, pomodoro, mozzarella, basilico',
@@ -22,6 +25,7 @@ return [
             ],
             [
                 'name' => 'Pizza Napoletana',
+                'photo'=> 'https://www.finedininglovers.it/sites/g/files/xknfdk1106/files/fdl_content_import_it/margherita-50kalo.jpg',
                 'visible' => true,
                 'price' => 9,
                 'ingredients' => 'Farina, acqua, olio, sale, pepe, pomodoro, mozzarella, acciughe, origano',
@@ -29,6 +33,7 @@ return [
             ],
             [
                 'name' => 'Pizza Quattro Stagioni',
+                'photo'=> 'https://www.finedininglovers.it/sites/g/files/xknfdk1106/files/fdl_content_import_it/margherita-50kalo.jpg',
                 'visible' => true,
                 'price' => 10,
                 'ingredients' => 'Farina, acqua, olio, sale, pepe, pomodoro, mozzarella, funghi, prosciutto cotto, carciofi, olive',
@@ -36,6 +41,7 @@ return [
             ],
             [
                 'name' => 'Pizza Diavola',
+                'photo'=> 'https://www.finedininglovers.it/sites/g/files/xknfdk1106/files/fdl_content_import_it/margherita-50kalo.jpg',
                 'visible' => true,
                 'price' => 9,
                 'ingredients' => 'Farina, acqua, olio, sale, pepe, pomodoro, mozzarella, salame piccante',
@@ -57,6 +63,7 @@ return [
         'dishes' => [
             [
                 'name' => 'Sushi Misto',
+                'photo' => '',
                 'visible' => true,
                 'price' => 23,
                 'ingredients' => 'Riso, salmone, tonno, gamberetti, alga nori',
@@ -78,6 +85,7 @@ return [
         'dishes' => [
             [
                 'name' => 'Pizza Onigiri',
+                'photo' => '',
                 'visible' => true,
                 'price' => 32,
                 'ingredients' => 'Riso, alghe, tonno, avocado, salsa di soia',
@@ -113,6 +121,7 @@ return [
         'dishes' => [
             [
                 'name' => 'Risotto ai Funghi Porcini',
+                'photo' => '',
                 'visible' => true,
                 'price' => 15,
                 'ingredients' => 'Riso, funghi porcini, brodo, burro, cipolla, vino bianco, parmigiano',
@@ -134,6 +143,7 @@ return [
         'dishes' => [
             [
                 'name' => 'Tagliatelle al Ragu',
+                'photo' => '',
                 'visible' => true,
                 'price' => 12,
                 'ingredients' => 'Tagliatelle, carne macinata, pomodoro, cipolla, carota, sedano, vino rosso',
