@@ -15,15 +15,15 @@ class RestaurantController extends Controller
      */
     public function index(Request $request)
     {
-         // gestione parametro q (parametro di ricerca)
-         $searchStr = $request->query('q', '');
+        // gestione parametro q (parametro di ricerca)
+        $searchStr = $request->query('q', '');
 
-         $restaurants = Restaurant::with('typologies', 'dishes')->where('name', 'LIKE', "%{$searchStr}%")->paginate(100);
+        $restaurants = Restaurant::with('typologies', 'dishes')->where('name', 'LIKE', "%{$searchStr}%")->paginate(100);
  
-         return response()->json([
+        return response()->json([
              'success' => true,
              'results' => $restaurants,
-         ]);
+        ]);
     }
 
     /**
